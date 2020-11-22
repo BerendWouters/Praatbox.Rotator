@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Praatbox.Rotator.API.Data;
 using Praatbox.Rotator.API.DTOs;
@@ -26,11 +25,5 @@ namespace Praatbox.Rotator.API.Controllers
                 }).ToList()
             };
         }
-    }
-
-    public class Member
-    {
-        public Guid Id { get; private set; }
-        public string Name { get; private set; }
     }
 }
