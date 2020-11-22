@@ -1,10 +1,9 @@
 <h2>Maak een groep</h2>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ut deserunt at delectus hic, temporibus voluptates.
     Qui accusamus ratione, delectus libero alias totam aspernatur cum nisi adipisci voluptatem doloribus ullam!</p>
-<form class="form-horizontal">
+<form class="form-horizontal" *ngIf="!createGroupResponse">
     <div class="form-group">
-        <label class="control-label col-sm-3" for="group-name-control">Naam: </label>
-        <div class="col-sm-9">
+        <label class="control-label" for="group-name-control">Naam:
             <input class="form-control" id="group-name-control" type="text" [formControl]="groupNameFormControl" />
             <div *ngIf="groupNameFormControl.invalid && (groupNameFormControl.dirty || groupNameFormControl.touched)"
                 class="alert alert-danger">
@@ -13,11 +12,10 @@
                     Je moet je groep een naam geven
                 </div>
             </div>
-        </div>
+        </label>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-3">Aantal deelnemers</label>
-        <div class="col-sm-9">
+        <label class="control-label">Aantal deelnemers
             <input class="form-control" type="number" [formControl]="amountOfMembersFormControl" />
             <div *ngIf="amountOfMembersFormControl.invalid && (amountOfMembersFormControl.dirty || amountOfMembersFormControl.touched)"
                 class="alert alert-danger">
@@ -26,7 +24,7 @@
                     Je moet minimaal 2 deelnemers hebben
                 </div>
             </div>
-        </div>
+        </label>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -34,3 +32,7 @@
         </div>
     </div>
 </form>
+<div class="" *ngIf="createGroupResponse">
+    <h2>Groep: {{ createGroupResponse.name }}</h2>
+
+</div>

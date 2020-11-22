@@ -1,18 +1,25 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Praatbox.Rotator.API.Data;
 using Praatbox.Rotator.API.DTOs;
 
 namespace Praatbox.Rotator.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
     {
-        [HttpPost]
-        public GroupDTO CreateGroup([FromBody] string name)
+        private readonly ILogger<GroupController> _logger;
+
+        public GroupController(ILogger<GroupController> logger)
         {
-            var group = Group.Create(name);
+            _logger = logger;
+        }
+        [HttpPost]
+        public GroupDTO CreateGroup([FromBody] CreateGroupDTO createGroup)
+        {
+            var group = Group.Create(createGroup.Name, createGroup.AmountOfMembers);
 
             return new GroupDTO()
             {
@@ -25,5 +32,11 @@ namespace Praatbox.Rotator.API.Controllers
                 }).ToList()
             };
         }
+    }
+
+    public class CreateGroupDTO
+    {
+        public string Name { get; set; }
+        public int AmountOfMembers { get; set; }
     }
 }

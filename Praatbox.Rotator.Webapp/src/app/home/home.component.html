@@ -1,4 +1,9 @@
 <h1>Praatbox.Rotator</h1>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dicta mollitia qui repellendus doloribus in ipsam veniam optio quaerat pariatur velit, aliquid quasi rem delectus quam tenetur minima nulla beatae!</p>
 
-<app-group-create></app-group-create>
+<app-group-create *ngIf="!group"
+(groupCreated)="onGroupCreated($event)"
+></app-group-create>
+<app-group-info *ngIf="group"
+[group]="group">    
+</app-group-info>

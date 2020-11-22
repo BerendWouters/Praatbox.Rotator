@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { GroupCreateComponent } from './group-create/group-create.component';
+import { GroupInfoComponent } from './group-info/group-info.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GroupCreateComponent } from './group-create/group-create.component';
     HomeComponent,
     CounterComponent,
     GroupCreateComponent,
+    GroupInfoComponent,
     FetchDataComponent
   ],
   imports: [
