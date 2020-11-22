@@ -1,0 +1,36 @@
+<h2>Maak een groep</h2>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ut deserunt at delectus hic, temporibus voluptates.
+    Qui accusamus ratione, delectus libero alias totam aspernatur cum nisi adipisci voluptatem doloribus ullam!</p>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="group-name-control">Naam: </label>
+        <div class="col-sm-9">
+            <input class="form-control" id="group-name-control" type="text" [formControl]="groupNameFormControl" />
+            <div *ngIf="groupNameFormControl.invalid && (groupNameFormControl.dirty || groupNameFormControl.touched)"
+                class="alert alert-danger">
+
+                <div *ngIf="groupNameFormControl.errors.required">
+                    Je moet je groep een naam geven
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3">Aantal deelnemers</label>
+        <div class="col-sm-9">
+            <input class="form-control" type="number" [formControl]="amountOfMembersFormControl" />
+            <div *ngIf="amountOfMembersFormControl.invalid && (amountOfMembersFormControl.dirty || amountOfMembersFormControl.touched)"
+                class="alert alert-danger">
+
+                <div *ngIf="amountOfMembersFormControl.errors.min">
+                    Je moet minimaal 2 deelnemers hebben
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="button" type="button" (click)="onCreateGroup()">Maak groep</button>
+        </div>
+    </div>
+</form>
